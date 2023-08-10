@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  app:
+    image: neuras/prod:alpr-api-latest
+    container_name: neuras-alpr-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - USE_V8=True
+      - LP_VERSION=S
+      - OCR_VERSION=S
+
+  db:
+    image: postgres
+    container_name: neuras-alpr-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
