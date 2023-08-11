@@ -10,11 +10,17 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    eth0:
+    eno0:
       dhcp4: no
       addresses: [{desired_ip}/24]
       gateway4: {gateway}
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+      
 """
+
+
+
 
 # Write the modified configuration to the Netplan file
 with open(netplan_config_path, "w") as f:
