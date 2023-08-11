@@ -10,7 +10,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    eno0:
+    eno1:
       dhcp4: no
       addresses: [{desired_ip}/24]
       gateway4: {gateway}
