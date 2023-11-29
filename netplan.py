@@ -4,20 +4,6 @@ desired_ip = input("Enter the desired IP address: ")
 gateway = input("Enter the gateway address: ")
 netplan_config_path = "/etc/netplan/01-netcfg.yaml"  # Path to your Netplan config file
 
-# Apply the Netplan configuration changes
-subprocess.run(["sudo", "netplan", "apply"])
-
-# Docker installation steps
-# Download the Docker installation script
-subprocess.run(["curl", "-fsSL", "https://get.docker.com", "-o", "get-docker.sh"])
-
-# Execute the Docker installation script
-subprocess.run(["sudo", "sh", "get-docker.sh"])
-
-# Install Docker Compose
-subprocess.run(["sudo", "apt-get", "update"])
-subprocess.run(["sudo", "apt-get", "install", "docker-compose-plugin"])
-
 # Modify the Netplan configuration file with the user-provided IP address and gateway
 netplan_config = f"""
 network:
