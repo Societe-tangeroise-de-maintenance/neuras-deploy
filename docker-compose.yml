@@ -14,6 +14,8 @@ services:
       - LP_VERSION=S
       - OCR_VERSION=S
 
+    restart: always
+
   db:
     image: postgres
     container_name: neuras-alpr-db
@@ -25,6 +27,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+    restart: always
 
 volumes:
   postgres_data:

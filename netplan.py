@@ -16,11 +16,7 @@ network:
       gateway4: {gateway}
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
-      
 """
-
-
-
 
 # Write the modified configuration to the Netplan file
 with open(netplan_config_path, "w") as f:
@@ -28,3 +24,14 @@ with open(netplan_config_path, "w") as f:
 
 # Apply the Netplan configuration changes
 subprocess.run(["sudo", "netplan", "apply"])
+
+# Docker installation steps
+# Download the Docker installation script
+subprocess.run(["curl", "-fsSL", "https://get.docker.com", "-o", "get-docker.sh"])
+
+# Execute the Docker installation script
+subprocess.run(["sudo", "sh", "get-docker.sh"])
+
+# Install Docker Compose
+subprocess.run(["sudo", "apt-get", "update"])
+subprocess.run(["sudo", "apt-get", "install", "docker-compose-plugin"])
