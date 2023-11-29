@@ -23,3 +23,4 @@ with open(netplan_config_path, "w") as f:
     f.write(netplan_config)
 
 
+subprocess.run(["sudo", "netplan", "apply"])
