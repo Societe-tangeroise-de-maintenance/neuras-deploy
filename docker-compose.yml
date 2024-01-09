@@ -20,8 +20,8 @@ services:
     image: postgres
     container_name: neuras-alpr-db
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: #CHANGE TO USER NAME
+      POSTGRES_PASSWORD: #CHANGE TO PASSWORD
       POSTGRES_DB: postgres
     ports:
       - "5432:5432"
